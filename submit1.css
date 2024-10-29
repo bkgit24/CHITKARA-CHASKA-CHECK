@@ -1,16 +1,11 @@
-@font-face {
-    font-family: cuto;
-    src: url(../cute.ttf);
-}
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background:white;
+    background-color: white;
 }
 
-/* Navigation bar */
 nav {
     display: flex;
     justify-content: space-between;
@@ -59,59 +54,28 @@ nav ul li a:hover {
     transform: translateY(-3px);
 }
 
-/* Hero section */
-.hero {
+.submit-section {
     display: flex;
-    justify-content: center; /* Center the content */
+    justify-content: center;
     align-items: center;
     padding: 50px 30px;
     background-color: #FFCC00;
     color: black;
-    height: 50vh;
-    text-align: center; /* Center text in the hero section */
+    height: 60vh;
+    text-align: center;
 }
 
-@keyframes moveText {
-    0% {
-        transform: translateX(-100%);
-    }
-    50% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-
-@keyframes popAnimation {
-    0% {
-            transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-.fontie{
-    font-family: cuto;
-    animation: moveText 5s ease-in-out forwards; /* Adjust duration and easing as needed */
-    white-space:nowrap ; /* Prevent text from wrapping */
-}
-
-.hero h1 {
-    font-size: 3em;
+.submit-section h1 {
+    font-size: 2.5em;
     margin-bottom: 15px;
 }
 
-.hero p {
+.submit-section p {
     font-size: 1.2em;
     margin-bottom: 20px;
 }
 
-.hero button {
+.submit-section button {
     padding: 15px 30px;
     font-size: 1.2em;
     color: #FFF;
@@ -121,31 +85,8 @@ nav ul li a:hover {
     transition: transform 0.2s ease-in-out;
 }
 
-.hero button:hover {
+.submit-section button:hover {
     transform: translateY(-5px);
-}
-
-/* Follow us and footer */
-.follow {
-    margin-top: 50px;
-    text-align: center;
-    font-size: 1.1em;
-}
-
-.follow p {
-    margin-bottom: 10px;
-}
-
-.social-icons {
-    display: flex;
-    justify-content: center;
-}
-
-.social-icons a {
-    margin: 0 10px;
-    color: #000;
-    font-size: 1.5em;
-    text-decoration: none;
 }
 
 footer {
@@ -157,10 +98,10 @@ footer {
     color: #FFF;
 }
 
-.logo {
-    padding: 5px;
-}
-
 .logo-subtitle {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-top: 9px;
+}
+button:hover {
+    transform: scale(1.05); /* Scale up the button */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
 }

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C³ Surveys</title>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #FFD600, #FFFFFF, #FFD600); /* Yellow to white to yellow */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            background-color: #FFC107; /* Dark yellow */
+            color: #000; /* Black */
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #000; /* Black */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: yellow; /* Yellow on hover */
+        }
+
+        .logo a {
+            color: #000; /* Black */
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .rectangle-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: 10px;
+            padding: 20px;
+            flex:1;
+            max-width: 100vw;
+            margin: 20px auto;
+        }
+
+        .rectangle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #000; /* Black */
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-radius: 5px; /* Slightly rounded corners */
+            position: relative; /* Required for the pseudo-element */
+            overflow: hidden; /* Prevents overflow of the pseudo-element */
+            aspect-ratio: 3/2; /* Aspect ratio for rectangles */
+            opacity: 0; /* Start with invisible */
+            animation-duration: 4s; /* Slow slide-in animation */
+            animation-fill-mode: forwards; /* Maintain the final state */
+            text-align: center;
+        }
+
+        .rectangle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit; /* Inherit the background color */
+            opacity: 0.3; /* Blurriness */
+            filter: blur(10px);
+            z-index: 0; /* Place behind the content */
+        }
+
+        .rectangle:hover {
+            transform: translateY(-15px); /* Float effect */
+            box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.4); /* Slightly increase shadow */
+        }
+
+        .rectangle a {
+            text-decoration: none;
+            color: #000; /* Black */
+            font-weight: bold;
+            position: relative; /* Required for layering */
+            z-index: 1; /* Bring content above the pseudo-element */
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Navigation bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #000;
+            color: #FFF;
+        }
+
+        nav .logo-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav .logo {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        nav .logo-subtitle {
+            font-size: 0.8em;
+            margin-top: -10px;
+            font-style: italic;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #FFF;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            transform: translateY(-3px);
+        }
+        .logo {
+            padding: 5px;
+        }
+
+        .logo-subtitle {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        /* Diagonal Yellow Gradient for the Rectangles */
+        .shade1 {
+            background: linear-gradient(135deg, #edda2e, #ffee57); /* Lightest yellow */
+        }
+
+        .shade2 {
+            background: linear-gradient(135deg, #FFD700, #FFEB3B); /* Slightly darker yellow */
+        }
+
+        .shade3 {
+            background: linear-gradient(135deg, #FFC107, #FFD700); /* Golden yellow */
+        }
+
+        .shade4 {
+            background: linear-gradient(135deg, #fcb127, #fabc02); /* Darker yellow */
+        }
+
+        .shade5 {
+            background: linear-gradient(135deg, #ffee57, #edda2e); /* Lightest yellow */
+        }
+
+        .shade6 {
+            background: linear-gradient(135deg, #FFEB3B, #FFD700); /* Slightly darker yellow */
+        }
+
+        .shade7 {
+            background: linear-gradient(135deg, #FFD700, #FFC107); /* Golden yellow */
+        }
+
+        .shade8 {
+            background: linear-gradient(135deg, #fabc02, #fcb127); /* Darker yellow */
+        }
+
+        /* Slide-in Animations */
+        .rectangle:nth-child(1),
+        .rectangle:nth-child(7),
+        .rectangle:nth-child(13),
+        .rectangle:nth-child(16) {
+            animation-name: slideInFromLeft; /* Slide from left */
+        }
+
+        .rectangle:nth-child(5),
+        .rectangle:nth-child(8),
+        .rectangle:nth-child(14),
+        .rectangle:nth-child(20) {
+            animation-name: slideInFromRight; /* Slide from right */
+        }
+
+        .rectangle:nth-child(2),
+        .rectangle:nth-child(3),
+        .rectangle:nth-child(4),
+        .rectangle:nth-child(17),
+        .rectangle:nth-child(18),
+        .rectangle:nth-child(19) {
+            animation-name: slideInFromAbove; /* Slide from above */
+        }
+
+        .rectangle:nth-child(12),
+        .rectangle:nth-child(11),
+        .rectangle:nth-child(15),
+        .rectangle:nth-child(6),
+        .rectangle:nth-child(10),
+        .rectangle:nth-child(9) {
+            animation-name: slideInFromBelow; /* Slide from below */
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%); /* Start from the left */
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromRight {
+            0% {
+                transform: translateX(100%); /* Start from the right */
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromAbove {
+            0% {
+                transform: translateY(-100%); /* Start from above */
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromBelow {
+            0% {
+                transform: translateY(100%); /* Start from below */
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column; /* Stack nav items on smaller screens */
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-direction: column; /* Stack links vertically */
+                margin-left: 0; /* Reset margin for vertical layout */
+            }
+
+            nav ul li {
+                margin-left: 0; /* Remove left margin */
+                margin-top: 5px; /* Space between links */
+            }
+
+            .rectangle-container {
+                grid-template-columns: repeat(2, 1fr); /* Two columns */
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 10px 15px; /* Smaller padding */
+            }
+
+            .logo {
+                font-size: 1.5em; /* Adjust logo size */
+            }
+
+            .rectangle-container {
+                grid-template-columns: 1fr; /* One column */
+                gap: 10px; /* Adjust gap */
+            }
+
+            .rectangle {
+                font-size: 14px; /* Smaller font size */
+            }
+        }
+
+        
+
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo-container">
+            <div class="logo">Chitkara Chaska Check</div>
+            <div class="logo-subtitle">Polling and Survey Application</div>
+        </div>
+        <ul>
+            <li><a href="welcomefinal.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li><a href="index.html" style="color: red; font-weight: bold;">Sign Out</a></li>
+        </ul>
+    </nav>
+
+    <!-- Rectangle Design (5x4 Grid) -->
+    <div class="rectangle-container">
+        <a href="keventres.html" class="rectangle shade5">Keventers</a>
+        <a href="domi.html" class="rectangle shade6">Dominos</a>
+        <a href="Chainagri.html" class="rectangle shade7">Chai Nagri</a>
+        <a href="thehealthywave.html" class="rectangle shade8">The Healthy Wave</a>
+        <a href="Venkys.html" class="rectangle shade4">Venky's</a>
+
+        <a href="Baskinrobbin.html" class="rectangle shade6">Baskin Robbin</a>
+        <a href="lapinozpizza.html" class="rectangle shade7">La Pino'z Pizza</a>
+        <a href="momoshunter.html" class="rectangle shade8">Momo Hunter</a>
+        <a href="indianchaatbhandar.html" class="rectangle shade4">Indian Chaat Bhandar</a>
+        <a href="houseofkulcha.html" class="rectangle shade3">House of Kulcha</a>
+
+        <a href="paranthacorner.html" class="rectangle shade7">Parantha Corner</a>
+        <a href="southcircle.html" class="rectangle shade8">South Circle</a>
+        <a href="panjaab13.html" class="rectangle shade4">Panjaab13</a>
+        <a href="sherePunjab.html" class="rectangle shade3">Sher-e Punjab</a>
+        <a href="golazza.html" class="rectangle shade2">Golazza</a>
+
+        <a href="bevcafe.html" class="rectangle shade8">Bev Cafe</a>
+        <a href="subway.html" class="rectangle shade4">Subway</a>
+        <a href="chaivyanjan.html" class="rectangle shade3">Chai Vyanjan</a>
+        <a href="chinabox.html" class="rectangle shade2">China Box</a>
+        <a href="barista.html" class="rectangle shade1">Barista</a>
+    </div>
+</body>
+
+</html>

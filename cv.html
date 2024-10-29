@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aiklvya's - Resume</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+        <style>
+            * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* Navbar */
+.navbar {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+}
+
+.navbar .nav-links {
+    list-style: none;
+}
+
+.navbar .nav-links li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.navbar .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+/* Hero Section */
+.hero-section {
+    background: #fae4e4;
+    padding: 100px 0;
+    text-align: center;
+    
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+        animation: left 3s forwards;
+
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+        animation: left 3s forwards;
+
+}
+
+.hero-section .btn {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    text-decoration: none;
+        animation: left 3s forwards;
+
+}
+
+/* Skills Section */
+.skills-section .skill {
+    margin-bottom: 20px;
+    background-color: rgb(204, 225, 230);
+}
+
+.skills-section .progress-bar {
+    width: 100%;
+    background: #ddd;
+    margin-top: 10px;
+}
+
+.skills-section .progress-bar span {
+    display: block;
+    height: 10px;
+    background: #333;
+}
+
+/* Portfolio Section */
+.portfolio-section .portfolio-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.portfolio-section .portfolio-item {
+    width: calc(33.33% - 20px);
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Section */
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-section input, .contact-section textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+}
+
+.contact-section .btn {
+    background: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+        animation: popup 3s forwards;
+
+}
+@keyframes left {
+    0% {
+        transform: translateX(-100vw);
+        /* Start outside of the viewport (left side) */
+    }
+  
+    100% {
+        transform: translateX(0);
+        /* End at the center (no movement) */
+    }
+  }
+  @keyframes popup {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+        /* Start small */
+    }
+  
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        /* Full size */
+    }
+  }
+        </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Aiklvya Sheoran</h1>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Current</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Intro Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <h1>Hello, I'm <span>Aiklvya Sheoran</span></h1>
+            <p>A passionate <strong>Coder</strong> refining her skills.</p>
+            <img class="pfp" src="python.png" alt="">
+            <br><br>
+            <a href="#contact" class="btn">Contact Me</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I am a currently a first year student at Chitkara University,Punjab pursuing my Bachelor of Engineering in Computer Science Engineering with Artifical Intelligence.</p>
+            <p>I Aiklvya , from Btech Cse-AI in Chitkara University with a foundation in Front end engineering  . Proficient in languages such as Python, Html&css, beginner in Bootstrap and C, Passionate about problem-solving and eager to contribute to innovative projects in a collaborative environment. Seeking an opportunity to apply technical skills and gain practical experience in the tech industry</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skill">
+                <h3>HTML/CSS</h3>
+                <div class="progress-bar"><span style="width: 90%;"></span></div>
+            </div>
+            <div class="skill">
+                <h3>Python</h3>
+                <div class="progress-bar"><span style="width: 80%;"></span></div>
+            </div>
+
+            
+
+            <div class="skill">
+                <h3>C</h3>
+                <div class="progress-bar"><span style="width: 80%;"></span></div>
+            </div>
+           
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <h2>Currently working on</h2>
+            <div class="experience">
+                <ul>
+                    <li>Python Programming for Artificial Intelligence and Machine Learning</li>
+                    <li>Web Development using HTML, CSS, JavaScript, and React</li>
+                    <li>Introduction to AI with Microsoft Azure AI</li>
+                    <li>Bootstrap</li>
+
+
+                </ul>
+            </div>
+         
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education-section">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education">
+                <h3>Bachelor of Engineering in Computer Science Engineering with Artifical Intelligence</h3>
+
+                <p>Chitkara University, 2024 - 2028</p>
+            </div>
+            
+        </div>
+    </section>
+
+    
+
+   
+    <section id="media" class="media-section">
+    <div class="container">
+        <h2>Social Media Handles</h2>
+            <div>
+                <a href="https://www.linkedin.com/in/aiklvya-sheoran-380008235?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><img src="LinkedIn_logo_initials.png" height="30" > Linkedin</a><br>
+                <a href="https://github.com/aiklvya177" target="_blank"><img src="git.png" alt="github " height="30"> Github</a><br>
+                <a href="https://www.instagram.com/iklvya._.s?igsh=d3UybmNmc2pidmg3" target="_blank"><img src="insta.jpeg" height="30" alt="ig"> Instagram</a></bra>
+            </div>
+    </section>
+    </div>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Contact Me</h2> 
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+
+
+        <footer>
+            <p>&copy; 2024 . All Rights Reserved.</p>
+        </footer>
+
+    
+        <script src="script.js"></script>
+</body>
+
+</html>

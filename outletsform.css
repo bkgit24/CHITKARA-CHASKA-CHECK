@@ -1,0 +1,115 @@
+body {
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.8), rgba(255, 204, 0, 0.8));
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.background-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.1;
+    z-index: 0;
+    width: 400px;
+    height: auto;
+    
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.8), rgba(255, 204, 0, 0.8));
+    border: 2px solid #1e1c18;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    margin-bottom: 70px;
+    margin-top: 70px;
+    background-color: #703e0c;
+    
+}
+
+h1 {
+    color: #FFC107;
+    font-size: 3em;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+
+h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+label {
+    font-size: 1.1em;
+    color: #333;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+.survey-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 20px auto;
+    z-index: 1;
+    position: relative;
+    
+}
+
+.question-box {
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.8), rgba(255, 204, 0, 0.8));
+    border: 2px solid #15100f;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    z-index: 1;
+    color: #797a49;
+    transition: transform 0.3s;
+}
+
+.question-box:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 10px 10px;
+}
+
+button {
+    margin: 20px 10px;
+    padding: 10px 20px;
+    background-color: #FFC107;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block; /* Align buttons side by side */
+    transition: transform 0.3s, box-shadow 0.3s; /* Add transition for hover effect */
+    width:100px;
+
+}
+
+button:hover {
+    transform: scale(1.05); /* Scale up the button */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+}
+
+@media (max-width: 768px) {
+    .survey-container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+}

@@ -1,0 +1,124 @@
+
+@font-face {
+    font-family: cute;
+    src: url(../cute.ttf);
+}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(#ffc107, #fff);
+}
+
+.heading {
+    font-size: 4.0em;
+    color: #000;
+    margin-bottom: 70px;
+    text-align: center;
+    font-family: cute;
+    animation: moveText 5s ease-in-out forwards;
+    white-space: nowrap;
+}
+
+.container {
+    background: linear-gradient(135deg, #fff, #ffcc00);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 700px;
+    animation: fadeIn 2.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes moveText {
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    color: #000;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    margin-bottom: 5px;
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    background-color: #ffc107;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ffca2c;
+}
+
+.hidden {
+    display: none;
+}
+
+#toggleForm {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#toggle, #toggleToSignIn {
+    color: black;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    button {
+        padding: 12px;
+    }
+}

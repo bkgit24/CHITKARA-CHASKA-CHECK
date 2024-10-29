@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../id codes/outlets css/signin.css">
+    <style>
+        @font-face {
+            font-family: cute;
+            src: url(../cute.ttf);
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(#ffc107, #fff);
+        }
+        .heading {
+            font-size: 4.0em;
+            color: #000;
+            margin-bottom: 70px;
+            text-align: center;
+            font-family: cute;
+            animation: moveText 5s ease-in-out forwards;
+            white-space: nowrap;
+        }
+        .container {
+            background: linear-gradient(135deg, #fff, #ffcc00);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 700px;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes moveText {
+            0% { transform: translateX(-100%); }
+            50% { transform: translateX(0); }
+            100% { transform: translateX(0); }
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            color: #000;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        label {
+            margin-bottom: 5px;
+            display: block;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px;
+            background-color: #ffc107;
+            color: black;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ffca2c;
+        }
+        .toggle-password {
+            position: absolute;
+            top: 38px;
+            right: 10px;
+            cursor: pointer;
+        }
+        @media (max-width: 600px) {
+            .container { width: 95%; padding: 15px; }
+            button { padding: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="heading">CHITKARA CHASKA CHECK</h1>
+    <div class="container">
+        <div class="form-container">
+            <h2>Sign Up</h2>
+            <form id="signUpForm" action="oursurveys.html" onsubmit="return validateForm()">
+                <div class="input-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="input-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Chitkara Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Create Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <span class="toggle-password" onclick="togglePassword('password')">👁️</span>
+                </div>
+                <div class="input-group">
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    <span class="toggle-password" onclick="togglePassword('confirmPassword')">👁️</span>
+                </div>
+                <div class="input-group">
+                    <label for="phoneNumber">Phone Number:</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" required>
+                </div>
+                <div class="input-group">
+                    <label for="rollNo">Roll No:</label>
+                    <input type="text" id="rollNo" name="rollNo" required>
+                </div>
+                <div class="input-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+                <button type="submit">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword(fieldId) {
+            const field = document.getElementById(fieldId);
+            if (field.type === "password") {
+                field.type = "text";
+            } else {
+                field.type = "password";
+            }
+        }
+
+        function validateForm() {
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+
+            if (!passwordRegex.test(password)) {
+                alert("Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one special character.");
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>
